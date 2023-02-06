@@ -1,10 +1,20 @@
 import { Router } from 'express';
 
-import { addPhoto, getPhotos } from '../controllers/images';
+import {
+  addCategory,
+  addImage,
+  addSubcategory,
+  getImages,
+} from '../controllers/admin';
 
 const router = Router();
 
-router.get('/images', getPhotos);
-router.post('/image', addPhoto);
+router.get('/images', getImages);
+
+router.post('/add-image', addImage);
+
+router.post('/add-category', addCategory);
+
+router.post('/add-subcategory', addSubcategory);
 
 export default router;

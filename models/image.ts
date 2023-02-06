@@ -10,23 +10,18 @@ export const Image = sequelize.define('image', {
   },
   imageUrl: {
     type: Sequelize.STRING,
-    allowNull: false,
   },
-  category: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  subcategory: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
+  // category: {
+  //   type: Sequelize.STRING,
+  // },
+  // subcategory: {
+  //   type: Sequelize.STRING,
+  // },
   dateTaken: {
     type: Sequelize.DATE,
-    allowNull: false,
   },
   description: {
     type: Sequelize.STRING,
-    allowNull: true,
   },
   createdAt: {
     field: 'created_at',

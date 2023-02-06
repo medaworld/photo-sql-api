@@ -16,8 +16,8 @@ export const Subcategory = sequelize.define('subcategory', {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  category: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
+  // category: {
+  //   type: Sequelize.STRING,
+  //   allowNull: false,
+  // },
 });

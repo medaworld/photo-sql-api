@@ -1,7 +1,12 @@
+require('dotenv').config({ path: './.env' });
 import express from 'express';
 import bodyParser from 'body-parser';
 
 import adminRoutes from './routes/admin';
+import { Image } from './models/image';
+import { Subcategory } from './models/subcategory';
+import { Category } from './models/category';
+import sequelize from './util/database';
 
 const app = express();
 
@@ -17,6 +22,18 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(adminRoutes);
+app.use('/admin', adminRoutes);
 
-app.listen(3000);
+Image.belongsTo(Subcategory);
+Image.belongsTo(Category);
+Subcategory.hasMany(Image);
+Subcategory.belongsTo(Category);
+Category.hasMany(Subcategory);
+Category.hasMany(Image);
+
+sequelize
+  .sync()
+  .then((result: any) => {
+    app.listen(8080);
+  })
+  .catch((err: any) => {});

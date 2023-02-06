@@ -10,10 +10,8 @@ export const Category = sequelize.define('category', {
   },
   title: {
     type: Sequelize.STRING,
-    allowNull: false,
   },
   imageUrl: {
     type: Sequelize.STRING,
-    allowNull: false,
   },
 });
